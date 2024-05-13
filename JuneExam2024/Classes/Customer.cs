@@ -13,5 +13,11 @@ namespace JuneExam2024.Classes
         public string Name { get; set; }
         public string ContactNumber { get; set; }
         public virtual List<Booking> Bookings { get; set; }
+
+        //Methods
+        public override string ToString()
+        {
+            return $"{Name} ({ContactNumber})";
+        }
     }
 }
