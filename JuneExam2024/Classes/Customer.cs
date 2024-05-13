@@ -12,5 +12,6 @@ namespace JuneExam2024.Classes
         public int CustomerId { get; set; }
         public string Name { get; set; }
         public string ContactNumber { get; set; }
+        public virtual List<Booking> Bookings { get; set; }
     }
 }
