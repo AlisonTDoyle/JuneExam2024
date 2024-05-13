@@ -1,5 +1,7 @@
-﻿using System;
+﻿using JuneExam2024.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +20,10 @@ namespace JuneExam2024.Classes
         //Methods
         public override string ToString()
         {
-            return $"{Customer.Name} ({Customer.ContactNumber} - Party of {NumberOfParticipants})";
+            //Dirty solution due to lack of time
+            DatabaseHandler handler = new DatabaseHandler();
+            Customer customer = handler.FetchCustomerById(CustomerId);
+            return $"{customer.Name} ({customer.ContactNumber}) - Party of {NumberOfParticipants}";
         }
     }
 }

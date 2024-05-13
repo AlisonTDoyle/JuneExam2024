@@ -48,6 +48,15 @@ namespace JuneExam2024.Utilities
             return query;
         }
 
+        public Customer FetchCustomerById(int id)
+        {
+            var query = (from customer in db.Customers
+                         where customer.CustomerId == id
+                         select customer).FirstOrDefault();
+
+            return query;
+        }
+
         public void CreateCustomer(Customer newCustomer)
         {
             try

@@ -177,6 +177,7 @@ namespace JuneExam2024
                 Booking bookingToDelete = lbxBookings.SelectedItem as Booking;
                 DatabaseHandler handler = new DatabaseHandler();
                 handler.DeleteBooking(bookingToDelete);
+                PopulateBookingsInfo();
             }
         }
         #endregion
