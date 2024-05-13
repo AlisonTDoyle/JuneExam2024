@@ -14,19 +14,19 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="60*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         
         <!--Grid children-->
         <!--Booking details-->
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Booking Details"/>
-            <DatePicker x:Name="dpSearchDate" SelectedDateChanged="dpSearchDate_SelectedDateChanged"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Booking Details" FontSize="16" FontWeight="Bold" Margin="16,0"/>
+            <DatePicker Height="32" x:Name="dpSearchDate" SelectedDateChanged="dpSearchDate_SelectedDateChanged"/>
         </StackPanel>
 
-        <ListBox Grid.Row="1" x:Name="lbxBookings"/>
+        <ListBox Grid.Row="1" x:Name="lbxBookings" Margin="16"/>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
             <Label Content="Capacity"/>
@@ -38,18 +38,18 @@
             <Label Content="Available" Margin="32,0,0,0"/>
             <TextBlock x:Name="tblkAvailable"/>
 
-            <Button Content="Delete Booking" Height="28" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" x:Name="btnDeleteBooking"/>
+            <Button Content="Delete Booking" Height="28" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" x:Name="btnDeleteBooking" Click="btnDeleteBooking_Click"/>
         </StackPanel>
         
         <!--New booking form-->
-        <Label Content="New Booking" Grid.Column="1"/>
+        <Label Content="New Booking" Grid.Column="1" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
 
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <DatePicker x:Name="dpNewBookingDate"/>
-            <TextBox x:Name="tbxNumberOfCustomers"/>
-            <TextBox x:Name="tbxCustomerName"/>
-            <TextBox x:Name="tbxContactNumber"/>
-            <Button Content="Customer Search"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="16">
+            <DatePicker x:Name="dpNewBookingDate" SelectedDateChanged="dpSearchDate_SelectedDateChanged" Margin="0,4"/>
+            <TextBox x:Name="tbxNumberOfCustomers" LostFocus="tbxNumberOfCustomers_LostFocus" GotFocus="tbxNumberOfCustomers_GotFocus" Margin="0,4"/>
+            <TextBox x:Name="tbxCustomerName" LostFocus="tbxCustomerName_LostFocus" GotFocus="tbxCustomerName_GotFocus" Margin="0,4"/>
+            <TextBox x:Name="tbxContactNumber" LostFocus="tbxContactNumber_LostFocus" GotFocus="tbxContactNumber_GotFocus" Margin="0,4"/>
+            <Button x:Name="btnCustomerSearch" Content="Customer Search" Click="btnCustomerSearch_Click" Margin="0,4"/>
         </StackPanel>
     </Grid>
 </Window>

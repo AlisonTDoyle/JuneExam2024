@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JuneExam2024.Windows"
         mc:Ignorable="d"
-        Title="CustomerSearch" Height="450" Width="800">
+        Title="CustomerSearch" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <!--Grid definitions-->
         <Grid.ColumnDefinitions>
@@ -21,7 +21,7 @@
         
         <!--Grid children-->
         <!--Existing Customers-->
-        <Label Content="Matching Customers"/>
+        <Label Content="Matching Customers" Grid.Column="1"/>
         <ListBox Grid.Row="1" x:Name="lbxCustomers"/>
         
         <!--New Customers-->
@@ -31,12 +31,14 @@
             <TextBox x:Name="tbxContactNumber"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Date of Booking - "/>
+                <TextBlock x:Name="tblkDateOfBooking"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Number of Customers - "/>
+                <TextBlock x:Name="tblkNumberOfCustomers"/>
             </StackPanel>
         </StackPanel>
 
-        <Button Content="Create Booking" Grid.Column="1" Grid.Row="2" x:Name="btnCreateBooking"/>
+        <Button Content="Create Booking" Grid.Column="1" Grid.Row="2" x:Name="btnCreateBooking" Click="btnCreateBooking_Click"/>
     </Grid>
 </Window>

@@ -13,7 +13,7 @@ namespace JuneExam2024.Classes
         public DateTime BookingDate { get; set; }
         public int NumberOfParticipants { get; set; }
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
 
         //Methods
         public override string ToString()
