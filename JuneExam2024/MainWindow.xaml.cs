@@ -30,20 +30,22 @@ namespace JuneExam2024
         #region Event Handlers
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            PopulateBookingsListBox();
+            //PopulateBookingsInfo();
         }
 
         private void dpSearchDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            PopulateBookingsListBox();
+            PopulateBookingsInfo();
         }
         #endregion
 
         #region Methods
-        private void PopulateBookingsListBox()
+        private void PopulateBookingsInfo()
         {
+            const int RestaurantCapacity = 40;
             DateTime? selectedDate = dpSearchDate.SelectedDate;
 
+            //Check if selected date is null
             if (selectedDate != null)
             {
                 //Get bookings
@@ -53,6 +55,18 @@ namespace JuneExam2024
                 //Refresh listbox data
                 lbxBookings.ItemsSource = null;
                 lbxBookings.ItemsSource = bookings;
+
+                // Calc seats available
+                int seatsAvailable = RestaurantCapacity;
+                foreach (Booking booking in bookings)
+                {
+                    seatsAvailable -= booking.NumberOfParticipants;
+                }
+
+                //Refresh other stats
+                tblkCapacity.Text = RestaurantCapacity.ToString();
+                tblkBookings.Text = bookings.Count.ToString();
+                tblkAvailable.Text = seatsAvailable.ToString();
             }
         }
         #endregion
