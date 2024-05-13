@@ -5,8 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JuneExam2024"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
+        <!--Grid definitions-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
         
+        <!--Grid children-->
+        <!--Booking details-->
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Booking Details"/>
+            <DatePicker x:Name="dpSearchDate" SelectedDateChanged="dpSearchDate_SelectedDateChanged"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="1" x:Name="lbxBookings"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Capacity"/>
+            <TextBlock x:Name="tblkCapacity"/>
+            
+            <Label Content="Bookings" Margin="32,0,0,0"/>
+            <TextBlock x:Name="tblkBookings"/>
+
+            <Label Content="Available" Margin="32,0,0,0"/>
+            <TextBlock x:Name="tblkAvailable"/>
+
+            <Button Content="Delete Booking" Height="28" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" x:Name="btnDeleteBooking"/>
+        </StackPanel>
+        
+        <!--New booking form-->
+        <Label Content="New Booking" Grid.Column="1"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <DatePicker x:Name="dpNewBookingDate"/>
+            <TextBox x:Name="tbxNumberOfCustomers"/>
+            <TextBox x:Name="tbxCustomerName"/>
+            <TextBox x:Name="tbxContactNumber"/>
+            <Button Content="Customer Search"/>
+        </StackPanel>
     </Grid>
 </Window>

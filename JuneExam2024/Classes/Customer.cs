@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JuneExam2024.Classes
 {
-    internal class Customer
+    public class Customer
     {
         //Properties
         public int CustomerId { get; set; }

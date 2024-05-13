@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JuneExam2024.Classes;
+using JuneExam2024.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +26,35 @@ namespace JuneExam2024
         {
             InitializeComponent();
         }
+
+        #region Event Handlers
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            PopulateBookingsListBox();
+        }
+
+        private void dpSearchDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PopulateBookingsListBox();
+        }
+        #endregion
+
+        #region Methods
+        private void PopulateBookingsListBox()
+        {
+            DateTime? selectedDate = dpSearchDate.SelectedDate;
+
+            if (selectedDate != null)
+            {
+                //Get bookings
+                DatabaseHandler handler = new DatabaseHandler();
+                List<Booking> bookings = handler.FetchBookingsByDate((DateTime)selectedDate);
+
+                //Refresh listbox data
+                lbxBookings.ItemsSource = null;
+                lbxBookings.ItemsSource = bookings;
+            }
+        }
+        #endregion
     }
 }

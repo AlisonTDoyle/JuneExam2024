@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JuneExam2024.Classes
 {
-    internal class Booking
+    public class Booking
     {
         //Properties
         public int BookingID { get; set; }
@@ -14,5 +14,11 @@ namespace JuneExam2024.Classes
         public int NumberOfParticipants { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+        //Methods
+        public override string ToString()
+        {
+            return $"{Customer.Name} ({Customer.ContactNumber} - Party of {NumberOfParticipants})";
+        }
     }
 }
